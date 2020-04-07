@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.adapters.FeedsListAdapter;
+import com.example.tamronmvpframe.databinding.ActivityFeedDetailBinding;
+import com.example.tamronmvpframe.databinding.FragmentHomeBinding;
 import com.example.tamronmvpframe.delegate.FeedsListDelegate;
 import com.example.tamronmvpframe.mvp.view.activity.FeedDetailActivity;
 import com.example.tamronmvpframe.vo.FeedsData;
@@ -24,7 +26,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
 
     private RecyclerView rv_home_feeds;
     private FeedsListAdapter feedsListAdapter;
-
+    private FragmentHomeBinding fragmentHomeBinding;
     List<FeedsData> feedsDataList = new ArrayList<>();
 
     public HomeFragment() {
@@ -38,10 +40,10 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         // Inflate the layout for this fragment
 
         createMockData();
+        fragmentHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
+        View view = fragmentHomeBinding.getRoot();
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        rv_home_feeds = view.findViewById(R.id.rv_home_feeds);
+        rv_home_feeds = fragmentHomeBinding.rvHomeFeeds;
 
         if (getActivity() != null) {
             feedsListAdapter = new FeedsListAdapter(getActivity(), this,false);

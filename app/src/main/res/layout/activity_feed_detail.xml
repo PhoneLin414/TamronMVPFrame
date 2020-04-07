@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/include_feed_detail"
     android:layout_height="match_parent"
     tools:context=".mvp.view.activity.FeedDetailActivity">
 <!--    android:fitsSystemWindows="true"-->
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -56,6 +58,7 @@
 
     <include
         android:id="@+id/content"
+
         layout="@layout/content_feed_detail" />
 
 

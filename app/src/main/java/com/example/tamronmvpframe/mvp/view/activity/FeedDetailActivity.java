@@ -5,27 +5,27 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.tamronmvpframe.adapters.FeedsListAdapter;
+import com.example.tamronmvpframe.databinding.ActivityFeedDetailBinding;
+import com.example.tamronmvpframe.databinding.ContentFeedDetailBinding;
 import com.example.tamronmvpframe.delegate.FeedsListDelegate;
 import com.example.tamronmvpframe.utils.Utils;
 import com.example.tamronmvpframe.vo.FeedsData;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewbinding.ViewBinding;
 
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tamronmvpframe.R;
 
@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class FeedDetailActivity extends AppCompatActivity implements FeedsListDelegate {
+public class FeedDetailActivity extends AppCompatActivity implements FeedsListDelegate, ViewBinding {
 
     TextView txt_detail_title, toolbar_title;
     ImageView img_FeedDtail;
@@ -41,26 +41,31 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
     FeedsListAdapter feedsListAdapter;
     AppBarLayout appBarLayout;
     Toolbar toolbar;
-
+    private ActivityFeedDetailBinding activityFeedDetailBinding;
     List<FeedsData> feedsDataList = new ArrayList<>();
-
     Menu menu;
     Boolean isFavourite = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_detail);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-        toolbar_title = findViewById(R.id.toolbar_title);
+        activityFeedDetailBinding = ActivityFeedDetailBinding.inflate(getLayoutInflater());
+        View view = activityFeedDetailBinding.getRoot();
+        setContentView(view);
+
+        //View Binding
+        toolbar_title = activityFeedDetailBinding.toolbarTitle;
+        toolbar = activityFeedDetailBinding.toolbar;
+        appBarLayout = activityFeedDetailBinding.appBar;
+
+
+
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         createMockData();
-
 
         initUI();
 
@@ -129,16 +134,21 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
 
 
     private void initUI() {
+        //new view binding for <include> Layout
 
-        txt_detail_title = findViewById(R.id.txt_detail_title);
-        img_FeedDtail = findViewById(R.id.img_feeddetail);
-        rv_detail_relatednews = findViewById(R.id.rv_detail_relatednews);
+       ContentFeedDetailBinding contentFeedDetailBinding = ContentFeedDetailBinding.inflate(getLayoutInflater());
+       txt_detail_title = contentFeedDetailBinding.txtDetailTitle;
+
+       // it is not working >>>>   rv_detail_relatednews = contentFeedDetailBinding.rvDetailRelatednews;
+       rv_detail_relatednews = findViewById(R.id.rv_detail_relatednews);
+       img_FeedDtail = activityFeedDetailBinding.imgFeeddetail;
+
 
         if (getIntent() != null && getIntent().getExtras() != null) {
             Bundle bd = getIntent().getExtras();
 
             Utils.imageToGlide(bd.getString("IMG"), img_FeedDtail, this);
-            txt_detail_title.setText(bd.getString("TITLE"));
+            activityFeedDetailBinding.toolbarTitle.setText("Title");
         }
 
         feedsListAdapter = new FeedsListAdapter(this, this, true);
@@ -170,5 +180,11 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
         feedsDataList.add(feedsData4);
         feedsDataList.add(feedsData5);
 
+    }
+
+    @NonNull
+    @Override
+    public View getRoot() {
+        return null;
     }
 }
