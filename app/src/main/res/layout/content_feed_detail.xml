@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".mvp.view.activity.FeedDetailActivity"
+    tools:showIn="@layout/activity_feed_detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_detail_title"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:text="  WASHINGTON (AP) — President Donald Trump is confronting the most dangerous crisis a U.S. leader has faced this century as the coronavirus spreads and a once-vibrant economy falters. As the turmoil deepens, the choices he makes in the critical weeks ahead will shape his reelection prospects, legacy and the character of the nation.
+The early fallout is sobering. In the White House’s best-case scenario, more than 100,000 Americans will die and millions more will be sickened. At least 10 million have already lost their jobs, and some economists warn it could be years before they find work again. The SP 500 index has plunged more than 20% and the U.S. surgeon general predicted on Sunday that this week will be “our Pearl Harbor moment” as the death toll climbs."/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_detail_relatednews"/>
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.core.widget.NestedScrollView>
