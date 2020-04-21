@@ -12,9 +12,9 @@ import android.widget.ImageView;
 
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.mvp.view.fragment.CategoryFragment;
+import com.example.tamronmvpframe.mvp.view.fragment.FavouriteFragment;
 import com.example.tamronmvpframe.mvp.view.fragment.HomeFragment;
 import com.example.tamronmvpframe.mvp.view.fragment.MoreFragment;
-import com.example.tamronmvpframe.mvp.view.fragment.ReadLaterFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             openFragment(new CategoryFragment());
                             return true;
                         case R.id.navigation_readlater:
-                            openFragment(new ReadLaterFragment());
+                            openFragment(new FavouriteFragment());
                             return true;
 //                        case R.id.navigation_more:
 //                            openFragment(new MoreFragment());

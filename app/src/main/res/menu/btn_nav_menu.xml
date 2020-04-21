@@ -11,8 +11,8 @@
         android:title="Category" />
     <item
         android:id="@+id/navigation_readlater"
-        android:icon="@drawable/bookmark"
-        android:title="Favourite" />
+        android:icon="@drawable/ic_favourite_black"
+        android:title="Favourites" />
 
 <!--    <item-->
 <!--        android:id="@+id/navigation_more"-->
