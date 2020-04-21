@@ -27,8 +27,8 @@ public class CategoryViewHolder extends BaseViewHolder<CategoryData> {
     public void setData(CategoryData data) {
 
         LinearLayout categorycard= itemView.findViewById(R.id.categorycard);
-        ImageView img_category = itemView.findViewById(R.id.iv_category);
-        TextView txt_categoryName = itemView.findViewById(R.id.txt_category_name);
+        ImageView img_category = itemView.findViewById(R.id.iv_channellogo);
+        TextView txt_categoryName = itemView.findViewById(R.id.tv_channelname);
 
         Utils.imageToGlide(data.getCategoryimg(),img_category,context);
 

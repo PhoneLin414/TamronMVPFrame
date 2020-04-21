@@ -1,5 +1,6 @@
 package com.example.tamronmvpframe.mvp.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.adapters.CategoryListAdapter;
 import com.example.tamronmvpframe.delegate.CategoryListDelegate;
+import com.example.tamronmvpframe.mvp.view.activity.ChannelDetailActivity;
 import com.example.tamronmvpframe.vo.CategoryData;
 
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class CategoryFragment extends Fragment implements CategoryListDelegate {
         if (getActivity() != null) {
             categoryListAdapter = new CategoryListAdapter(getActivity(), this);
             rv_category.setAdapter(categoryListAdapter);
-            rv_category.setLayoutManager(new GridLayoutManager(getActivity(),2));
+            rv_category.setLayoutManager(new LinearLayoutManager(getActivity()));
 
             categoryListAdapter.setNewData(categoryDataList);
         }
@@ -59,23 +61,21 @@ public class CategoryFragment extends Fragment implements CategoryListDelegate {
 
     private void createMockData(){
 
-        CategoryData categoryData1 = new CategoryData(0,"Health and Beauty","https://thumbs.dreamstime.com/b/political-news-gold-d-words-dark-digital-background-41801097.jpg");
-        CategoryData categoryData2 = new CategoryData(0,"Sports","https://thumbs.dreamstime.com/b/political-news-gold-d-words-dark-digital-background-41801097.jpg");
-        CategoryData categoryData3 = new CategoryData(0,"Business & Economic","https://thumbs.dreamstime.com/b/political-news-gold-d-words-dark-digital-background-41801097.jpg");
-        CategoryData categoryData4 = new CategoryData(0,"Politic","https://thumbs.dreamstime.com/b/political-news-gold-d-words-dark-digital-background-41801097.jpg");
-        CategoryData categoryData5 = new CategoryData(0,"Science","https://thumbs.dreamstime.com/b/political-news-gold-d-words-dark-digital-background-41801097.jpg");
+        CategoryData categoryData1 = new CategoryData(0,"Mizzima","https://upload.wikimedia.org/wikipedia/my/thumb/8/8e/Logo_of_Mizzima_Daily.svg/1024px-Logo_of_Mizzima_Daily.svg.png");
+        CategoryData categoryData2 = new CategoryData(0,"The Irrawaddy","https://www.irrawaddy.com/wp-content/themes/irrawaddy-mobile/images/logo-og.png");
+        CategoryData categoryData3 = new CategoryData(0,"adc","https://lh3.googleusercontent.com/3J9u7BjkDXEPrh_VjAAsdCWoJ6v8AUQZjP2OyHIAapR_kf9cIrk_dP8eD3XBd5JqkA");
+
 
         categoryDataList.add(categoryData1);
         categoryDataList.add(categoryData2);
         categoryDataList.add(categoryData3);
-        categoryDataList.add(categoryData4);
-        categoryDataList.add(categoryData5);
 
     }
 
     @Override
     public void onCategoryTap(int id) {
-
+        Intent intent = ChannelDetailActivity.intentFromChannelList(getActivity());
+        startActivity(intent);
 
 
     }
