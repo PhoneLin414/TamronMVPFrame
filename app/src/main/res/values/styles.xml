@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#ff9800</item>
-        <item name="colorPrimaryDark">#c66900</item>
-        <item name="colorAccent">#ffc947</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
 
     </style>
 
@@ -19,6 +19,10 @@
     <style name="AppTheme.PopupOverlay" parent="" >
         <item name="colorPrimary">#ff9800</item>
         <item name="colorPrimaryDark">#c66900</item>
+    </style>
+
+    <style name="TextAppearance.Subhead.Bold" parent="@style/TextAppearance.AppCompat.Subhead">
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

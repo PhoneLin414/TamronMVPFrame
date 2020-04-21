@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.adapters.CategoryListAdapter;
@@ -28,7 +29,7 @@ public class CategoryFragment extends Fragment implements CategoryListDelegate {
 
     private RecyclerView rv_category;
     private CategoryListAdapter categoryListAdapter;
-
+    private TextView tv_categoryTitle;
     List<CategoryData> categoryDataList = new ArrayList<>();
 
     public CategoryFragment() {
@@ -44,9 +45,9 @@ public class CategoryFragment extends Fragment implements CategoryListDelegate {
         createMockData();
 
         View view = inflater.inflate(R.layout.fragment_category, container, false);
-
+        tv_categoryTitle = view.findViewById(R.id.tv_categoryTitle);
         rv_category = view.findViewById(R.id.rv_category);
-
+        tv_categoryTitle.setText("Category");
         if (getActivity() != null) {
             categoryListAdapter = new CategoryListAdapter(getActivity(), this);
             rv_category.setAdapter(categoryListAdapter);

@@ -40,6 +40,11 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         // Required empty public constructor
     }
 
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +53,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         createMockData();
         fragmentHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
         View view = fragmentHomeBinding.getRoot();
-        toolbar = view.findViewById(R.id.tb_HomeMain);
+        //toolbar = view.findViewById(R.id.tb_HomeMain);
         toolbarTitle = view.findViewById(R.id.tb_title);
         appBarLayout = view.findViewById(R.id.ab_Main);
         rv_home_feeds = fragmentHomeBinding.rvHomeFeeds;

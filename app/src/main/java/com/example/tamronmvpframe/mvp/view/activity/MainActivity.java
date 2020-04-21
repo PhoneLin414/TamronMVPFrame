@@ -52,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_readlater:
                             openFragment(new ReadLaterFragment());
                             return true;
-                        case R.id.navigation_more:
-                            openFragment(new MoreFragment());
-                            return true;
+//                        case R.id.navigation_more:
+//                            openFragment(new MoreFragment());
+//                            return true;
                     }
                     return false;
                 }

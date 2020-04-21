@@ -22,31 +22,24 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="?actionBarSize"
-                android:background="@android:color/white"
-                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:background="@android:color/white"
                     android:text="Latest News"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="10dp"
                     android:textStyle="bold" />
 
-            </LinearLayout>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarMain"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-
                 app:contentInsetStartWithNavigation="0dp"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 

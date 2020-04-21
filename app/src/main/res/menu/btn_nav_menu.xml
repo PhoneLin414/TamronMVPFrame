@@ -13,9 +13,10 @@
         android:id="@+id/navigation_readlater"
         android:icon="@drawable/bookmark"
         android:title="Favourite" />
-    <item
-        android:id="@+id/navigation_more"
-        android:icon="@drawable/more"
-        android:title="More" />
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_more"-->
+<!--        android:icon="@drawable/more"-->
+<!--        android:title="More" />-->
 
 </menu>

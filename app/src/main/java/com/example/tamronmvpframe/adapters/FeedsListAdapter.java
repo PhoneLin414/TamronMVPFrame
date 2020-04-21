@@ -32,9 +32,9 @@ public class FeedsListAdapter extends BaseRecyclerAdapter<BaseViewHolder, FeedsD
 
         View view;
         if (!isRelatedNews){
-             view = mLayoutInflator.inflate(R.layout.feeds_cardview,parent,false);
+             view = mLayoutInflator.inflate(R.layout.item_feeds_cardview,parent,false);
         }else {
-             view = mLayoutInflator.inflate(R.layout.related_feed_card,parent,false);
+             view = mLayoutInflator.inflate(R.layout.item_related_feed_card,parent,false);
         }
 
 
