@@ -1,14 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/include_feed_detail"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mvp.view.fragment.HomeFragment">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ab_Main"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/white"
+        >
+        <!--        android:fitsSystemWindows="true"-->
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="?actionBarSize"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Latest News"
+                    android:textSize="20dp"
+                    android:layout_marginStart="16dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@color/colorDivider" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarMain"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/twenty_sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.appcompat.widget.Toolbar
+
+                android:id="@+id/tb_HomeMain"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:id="@+id/tb_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/twenty_sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar
+>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home_feeds"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".mvp.view.activity.FeedDetailActivity"
+        tools:showIn="@layout/fragment_home" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    tools:context=".mvp.view.fragment.HomeFragment"-->
+    <!--    android:orientation="vertical">-->
 
 
-</FrameLayout>
+    <!--    <com.google.android.material.appbar.AppBarLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
+    <!--        app:elevation="0dp"-->
+    <!--        >-->
+    <!--        <androidx.appcompat.widget.Toolbar-->
+    <!--            android:id="@+id/toolbar"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="?attr/actionBarSize"-->
+    <!--            android:background="@android:color/white"-->
+    <!--            app:contentInsetStartWithNavigation="0dp"-->
+    <!--            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
+    <!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <!--    <TextView-->
+    <!--        android:text="Latest News"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:textSize="20dp"-->
+    <!--        android:layout_marginLeft="8dp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"/>-->
+    <!--    <View-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:layout_margin="8dp"-->
+    <!--        android:background="@color/colorDivider"/>-->
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/rv_home_feeds"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"/>-->
+
+
+    <!--</LinearLayout>-->

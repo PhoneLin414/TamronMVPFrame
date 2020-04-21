@@ -3,6 +3,7 @@ package com.example.tamronmvpframe.mvp.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.adapters.FeedsListAdapter;
@@ -18,6 +20,7 @@ import com.example.tamronmvpframe.databinding.FragmentHomeBinding;
 import com.example.tamronmvpframe.delegate.FeedsListDelegate;
 import com.example.tamronmvpframe.mvp.view.activity.FeedDetailActivity;
 import com.example.tamronmvpframe.vo.FeedsData;
+import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,9 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     private FeedsListAdapter feedsListAdapter;
     private FragmentHomeBinding fragmentHomeBinding;
     List<FeedsData> feedsDataList = new ArrayList<>();
+    Toolbar toolbar;
+    TextView toolbarTitle;
+    AppBarLayout appBarLayout;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -38,24 +44,28 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         createMockData();
         fragmentHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
         View view = fragmentHomeBinding.getRoot();
-
+        toolbar = view.findViewById(R.id.tb_HomeMain);
+        toolbarTitle = view.findViewById(R.id.tb_title);
+        appBarLayout = view.findViewById(R.id.ab_Main);
         rv_home_feeds = fragmentHomeBinding.rvHomeFeeds;
 
         if (getActivity() != null) {
             feedsListAdapter = new FeedsListAdapter(getActivity(), this,false);
             rv_home_feeds.setAdapter(feedsListAdapter);
             rv_home_feeds.setLayoutManager(new LinearLayoutManager(getActivity()));
-
             feedsListAdapter.setNewData(feedsDataList);
         }
-
-
-
-
+        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            if (verticalOffset == 0) {
+                toolbarTitle.setVisibility(View.GONE);
+            } else {
+                toolbarTitle.setText("Latest News ");
+                toolbarTitle.setVisibility(View.VISIBLE);
+            }
+        });
         return view;
 
     }

@@ -1,50 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:id="@+id/feedscard">
+    android:id="@+id/feedscard"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        app:cardCornerRadius="20dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:visibility="visible"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/txt_feeds_title"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txt_feeds_title2"
+                app:layout_constraintEnd_toStartOf="@+id/iv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:maxEms="8"
+                android:maxLines="3"
+                />
+
+            <TextView
+                android:id="@+id/txt_feeds_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DVB TV NEWS"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txt_feeds_title3"
+                app:layout_constraintStart_toStartOf="@+id/txt_feeds_title"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/txt_feeds_title3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="/ 12/02/2020"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/txt_feeds_title"
+                app:layout_constraintStart_toEndOf="@+id/txt_feeds_title2" />
+
             <ImageView
                 android:id="@+id/iv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_alignBottom="@id/iv"
-                android:background="#80000000"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/txt_feeds_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:scrollHorizontally="true"
-                    android:singleLine="true"
-                    android:textColor="#EEEEEE"
-                    android:focusable="true"
-                    android:textSize="18dp"/>
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class FeedDetailActivity extends AppCompatActivity implements FeedsListDelegate, ViewBinding {
+public class FeedDetailActivity extends AppCompatActivity implements FeedsListDelegate {
 
     TextView txt_detail_title, toolbar_title;
     ImageView img_FeedDtail;
@@ -52,13 +52,10 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
         activityFeedDetailBinding = ActivityFeedDetailBinding.inflate(getLayoutInflater());
         View view = activityFeedDetailBinding.getRoot();
         setContentView(view);
-
         //View Binding
         toolbar_title = activityFeedDetailBinding.toolbarTitle;
         toolbar = activityFeedDetailBinding.toolbar;
         appBarLayout = activityFeedDetailBinding.appBar;
-
-
 
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -78,7 +75,6 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-
 
                 if (verticalOffset == 0) {
                     toolbar_title.setVisibility(View.GONE);
@@ -182,9 +178,5 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
 
     }
 
-    @NonNull
-    @Override
-    public View getRoot() {
-        return null;
-    }
+
 }
