@@ -32,6 +32,16 @@
 The early fallout is sobering. In the White House’s best-case scenario, more than 100,000 Americans will die and millions more will be sickened. At least 10 million have already lost their jobs, and some economists warn it could be years before they find work again. The SP 500 index has plunged more than 20% and the U.S. surgeon general predicted on Sunday that this week will be “our Pearl Harbor moment” as the death toll climbs."/>
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="Related News"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

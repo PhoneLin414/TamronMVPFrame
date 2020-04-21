@@ -47,20 +47,20 @@ public class FeedsViewHolder extends BaseViewHolder<FeedsData> {
             }
         });
 
-//        DisplayMetrics displaymetrics = new DisplayMetrics();
-//        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-//
-//        if (isRelatedNews){
-//
-//            //if you need three fix imageview in width
-//            int devicewidth = displaymetrics.widthPixels / 2;
-//
-//            feedscard.getLayoutParams().width = devicewidth;
-//        }else {
-//            int devicewidth = displaymetrics.widthPixels - 70;
-//
-//            feedscard.getLayoutParams().width = devicewidth ;
-//        }
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+
+        if (isRelatedNews){
+
+            //if you need three fix imageview in width
+            int devicewidth = displaymetrics.widthPixels - displaymetrics.widthPixels/5;
+
+            feedscard.getLayoutParams().width = devicewidth;
+        }else {
+            int devicewidth = displaymetrics.widthPixels;
+
+            feedscard.getLayoutParams().width = devicewidth ;
+        }
 //
 //
 

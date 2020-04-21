@@ -79,7 +79,7 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
                 if (verticalOffset == 0) {
                     toolbar_title.setVisibility(View.GONE);
                 } else {
-                    toolbar_title.setText("Title ");
+                    toolbar_title.setText("Details");
                     toolbar_title.setVisibility(View.VISIBLE);
                 }
             }
@@ -105,10 +105,10 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
 
                 if (isFavourite) {
                     isFavourite = false;
-                    menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.home));
+                    menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_solid));
                 } else {
                     isFavourite = true;
-                    menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.bookmark));
+                    menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border));
                 }
 
                 return true;

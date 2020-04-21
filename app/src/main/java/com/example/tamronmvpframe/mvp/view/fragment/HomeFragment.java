@@ -1,6 +1,7 @@
 package com.example.tamronmvpframe.mvp.view.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
@@ -32,7 +33,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     private FragmentHomeBinding fragmentHomeBinding;
     List<FeedsData> feedsDataList = new ArrayList<>();
     Toolbar toolbar;
-    TextView toolbarTitle;
+    TextView toolbarTitle,tvHomeTitle;
     AppBarLayout appBarLayout;
 
     public HomeFragment() {
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         toolbarTitle = view.findViewById(R.id.tb_title);
         appBarLayout = view.findViewById(R.id.ab_Main);
         rv_home_feeds = fragmentHomeBinding.rvHomeFeeds;
+        tvHomeTitle = view.findViewById(R.id.tv_home_title);
 
         if (getActivity() != null) {
             feedsListAdapter = new FeedsListAdapter(getActivity(), this,false);
@@ -60,10 +62,15 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         }
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset == 0) {
+                tvHomeTitle.setVisibility(View.VISIBLE);
                 toolbarTitle.setVisibility(View.GONE);
+                tvHomeTitle.setText("Home");
             } else {
+
                 toolbarTitle.setText("Latest News ");
+                toolbarTitle.setTextColor(Color.parseColor("#FFFFFF"));
                 toolbarTitle.setVisibility(View.VISIBLE);
+                tvHomeTitle.setVisibility(View.GONE);
             }
         });
         return view;

@@ -20,9 +20,7 @@ android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="#000000"
-    app:itemTextColor="#eeee"
+
     app:menu="@menu/btn_nav_menu"
-    app:itemIconTint="#eeee"
     app:itemIconSize="24dp"/>
 </RelativeLayout>
