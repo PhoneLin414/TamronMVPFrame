@@ -15,11 +15,9 @@ import com.google.android.material.appbar.AppBarLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewbinding.ViewBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +34,7 @@ import java.util.Objects;
 public class FeedDetailActivity extends AppCompatActivity implements FeedsListDelegate {
 
     TextView txt_detail_title, toolbar_title;
-    ImageView img_FeedDtail;
+    ImageView img_FeedDtail, img_ChannelIcon;
     RecyclerView rv_detail_relatednews;
     FeedsListAdapter feedsListAdapter;
     AppBarLayout appBarLayout;
@@ -138,12 +136,13 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
        // it is not working >>>>   rv_detail_relatednews = contentFeedDetailBinding.rvDetailRelatednews;
        rv_detail_relatednews = findViewById(R.id.rv_detail_relatednews);
        img_FeedDtail = activityFeedDetailBinding.imgFeeddetail;
-
+        img_ChannelIcon = contentFeedDetailBinding.ivChannelIcon;
 
         if (getIntent() != null && getIntent().getExtras() != null) {
             Bundle bd = getIntent().getExtras();
 
             Utils.imageToGlide(bd.getString("IMG"), img_FeedDtail, this);
+            Utils.imageToGlide("https://www.irrawaddy.com/wp-content/themes/irrawaddy-mobile/images/logo-og.png", img_ChannelIcon, this);
             activityFeedDetailBinding.toolbarTitle.setText("Title");
         }
 

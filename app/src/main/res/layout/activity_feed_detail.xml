@@ -55,7 +55,6 @@
 
     <include
         android:id="@+id/content"
-
         layout="@layout/content_feed_detail" />
 
 

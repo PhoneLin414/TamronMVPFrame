@@ -24,7 +24,7 @@
             android:padding="8dp">
 
             <ImageView
-                android:id="@+id/iv_channellogo"
+                android:id="@+id/iv_channelLogo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 />
