@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.view.activity.FilterActivity"></activity>
+        <activity android:name=".mvp.view.activity.FilterActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".mvp.view.activity.ChannelDetailActivity" />
         <activity
             android:name=".mvp.view.activity.FeedDetailActivity"

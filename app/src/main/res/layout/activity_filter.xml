@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="top"
     android:orientation="vertical"
+    android:theme="@style/AppTheme.AppBarOverlay"
     tools:context=".mvp.view.activity.FilterActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
