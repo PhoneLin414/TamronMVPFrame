@@ -4,12 +4,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -20,6 +27,7 @@ import com.example.tamronmvpframe.databinding.ActivityFeedDetailBinding;
 import com.example.tamronmvpframe.databinding.FragmentHomeBinding;
 import com.example.tamronmvpframe.delegate.FeedsListDelegate;
 import com.example.tamronmvpframe.mvp.view.activity.FeedDetailActivity;
+import com.example.tamronmvpframe.mvp.view.activity.FilterActivity;
 import com.example.tamronmvpframe.vo.FeedsData;
 import com.google.android.material.appbar.AppBarLayout;
 
@@ -45,6 +53,11 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,11 +66,21 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         createMockData();
         fragmentHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
         View view = fragmentHomeBinding.getRoot();
-        //toolbar = view.findViewById(R.id.tb_HomeMain);
+        toolbar = view.findViewById(R.id.tb_HomeMain);
+        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.option_menu);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+               startActivity(new Intent(getActivity(), FilterActivity.class));
+                return false;
+            }
+        });
         toolbarTitle = view.findViewById(R.id.tb_title);
         appBarLayout = view.findViewById(R.id.ab_Main);
         rv_home_feeds = fragmentHomeBinding.rvHomeFeeds;
         tvHomeTitle = view.findViewById(R.id.tv_home_title);
+
 
         if (getActivity() != null) {
             feedsListAdapter = new FeedsListAdapter(getActivity(), this,false);
