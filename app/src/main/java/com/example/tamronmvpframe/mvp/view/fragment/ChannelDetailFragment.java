@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,9 +61,10 @@ public class ChannelDetailFragment extends Fragment implements FeedsListDelegate
     }
 
     @Override
-    public void onFeedsTap(int id, String title, String date, String img) {
+    public void onFeedsTap(int id, String title, String date, String img, ImageView headerImage) {
         Intent intent = FeedDetailActivity.intentFromFeedsList(getActivity(), id, title, img);
-        startActivity(intent);
+        ActivityOptionsCompat option = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), headerImage, ViewCompat.getTransitionName(headerImage));
+        startActivity(intent,option.toBundle());
 
     }
 

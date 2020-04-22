@@ -42,7 +42,7 @@ public class FavouriteViewHolder extends BaseViewHolder<FavouriteData> {
             @Override
             public void onClick(View v) {
                 Log.i("Data", data.getTitle());
-                favouriteListDelegate.onFeedsTap(1,data.getTitle(),data.getDate(),data.getImg());
+                favouriteListDelegate.onFeedsTap(1,data.getTitle(),data.getDate(),data.getImg(), imageView);
             }
         });
 
