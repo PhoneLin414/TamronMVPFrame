@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tamronmvpframe.R;
@@ -83,10 +86,12 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     }
 
     @Override
-    public void onFeedsTap(int id, String title, String date, String img) {
+    public void onFeedsTap(int id, String title, String date, String img, ImageView itemImage) {
 
        Intent intent = FeedDetailActivity.intentFromFeedsList(getActivity(),id,title,img);
-       startActivity(intent);
+        ActivityOptionsCompat option = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), itemImage,ViewCompat.getTransitionName(itemImage));
+
+       startActivity(intent,option.toBundle());
 
     }
 

@@ -43,7 +43,7 @@ public class FeedsViewHolder extends BaseViewHolder<FeedsData> {
         feedscard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedsListDelegate.onFeedsTap(1,data.getTitle(),data.getDate(),data.getImg());
+                feedsListDelegate.onFeedsTap(1,data.getTitle(),data.getDate(),data.getImg(), imageView);
             }
         });
 
