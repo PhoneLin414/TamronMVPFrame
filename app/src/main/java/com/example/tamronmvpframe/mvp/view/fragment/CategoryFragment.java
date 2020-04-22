@@ -47,7 +47,7 @@ public class CategoryFragment extends Fragment implements CategoryListDelegate {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         tv_categoryTitle = view.findViewById(R.id.tv_categoryTitle);
         rv_category = view.findViewById(R.id.rv_category);
-        tv_categoryTitle.setText("Category");
+        tv_categoryTitle.setText("Channels");
         if (getActivity() != null) {
             categoryListAdapter = new CategoryListAdapter(getActivity(), this);
             rv_category.setAdapter(categoryListAdapter);

@@ -143,6 +143,6 @@ public class HomeFragment extends Fragment implements FeedsListDelegate, Collect
 
     @Override
     public void onTapCollectionPicker(String id) {
-        Toast.makeText(getActivity(),id,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getActivity(),id,Toast.LENGTH_SHORT).show();
     }
 }

@@ -8,7 +8,7 @@
     <item
         android:id="@+id/navigation_category"
         android:icon="@drawable/style"
-        android:title="Category" />
+        android:title="Channels" />
     <item
         android:id="@+id/navigation_readlater"
         android:icon="@drawable/ic_favourite_black"
