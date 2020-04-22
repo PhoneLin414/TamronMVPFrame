@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
     tools:context=".mvp.view.activity.FilterActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        app:contentInsetStartWithNavigation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:id="@+id/tv_filterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    <com.anton46.collectionitempicker.CollectionPicker
+        android:id="@+id/collection_item_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:cp_addIcon="@android:drawable/ic_menu_add"
+        app:cp_cancelIcon="@android:drawable/ic_menu_close_clear_cancel"
+        app:cp_itemBackgroundNormal="@android:color/darker_gray"
+        app:cp_itemBackgroundPressed="@color/colorPrimary"
+        app:cp_itemMargin="5dp"
+        app:cp_textPaddingBottom="5dp"
+        app:cp_textPaddingLeft="10dp"
+        app:cp_textPaddingRight="10dp"
+        app:cp_textPaddingTop="5dp"
+        app:cp_simplified="false" />
+</androidx.appcompat.widget.LinearLayoutCompat>

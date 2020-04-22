@@ -20,11 +20,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tamronmvpframe.R;
 import com.example.tamronmvpframe.adapters.FeedsListAdapter;
 import com.example.tamronmvpframe.databinding.ActivityFeedDetailBinding;
 import com.example.tamronmvpframe.databinding.FragmentHomeBinding;
+import com.example.tamronmvpframe.delegate.CollectionPickerDelegate;
 import com.example.tamronmvpframe.delegate.FeedsListDelegate;
 import com.example.tamronmvpframe.mvp.view.activity.FeedDetailActivity;
 import com.example.tamronmvpframe.mvp.view.activity.FilterActivity;
@@ -34,7 +36,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements FeedsListDelegate {
+public class HomeFragment extends Fragment implements FeedsListDelegate, CollectionPickerDelegate {
 
     private RecyclerView rv_home_feeds;
     private FeedsListAdapter feedsListAdapter;
@@ -43,6 +45,8 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     Toolbar toolbar;
     TextView toolbarTitle,tvHomeTitle;
     AppBarLayout appBarLayout;
+
+    CollectionPickerDelegate collectionPickerDelegate;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -56,6 +60,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+        collectionPickerDelegate = this;
         super.onCreate(savedInstanceState);
     }
 
@@ -72,6 +77,7 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                FilterActivity.collectionPickerDelegate = collectionPickerDelegate;
                startActivity(new Intent(getActivity(), FilterActivity.class));
                 return false;
             }
@@ -128,5 +134,10 @@ public class HomeFragment extends Fragment implements FeedsListDelegate {
         feedsDataList.add(feedsData4);
         feedsDataList.add(feedsData5);
 
+    }
+
+    @Override
+    public void onTapCollectionPicker(String id) {
+        Toast.makeText(getActivity(),id,Toast.LENGTH_SHORT).show();
     }
 }

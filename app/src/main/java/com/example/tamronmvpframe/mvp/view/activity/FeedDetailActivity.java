@@ -55,6 +55,7 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
         toolbar = activityFeedDetailBinding.toolbar;
         appBarLayout = activityFeedDetailBinding.appBar;
 
+
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -135,6 +136,7 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
 
        // it is not working >>>>   rv_detail_relatednews = contentFeedDetailBinding.rvDetailRelatednews;
        rv_detail_relatednews = findViewById(R.id.rv_detail_relatednews);
+        txt_detail_title = findViewById(R.id.txt_detail_title);
        img_FeedDtail = activityFeedDetailBinding.imgFeeddetail;
         img_ChannelIcon = contentFeedDetailBinding.ivChannelIcon;
 
@@ -142,6 +144,7 @@ public class FeedDetailActivity extends AppCompatActivity implements FeedsListDe
             Bundle bd = getIntent().getExtras();
 
             Utils.imageToGlide(bd.getString("IMG"), img_FeedDtail, this);
+            txt_detail_title.setText(bd.getString("TITLE"));
             Utils.imageToGlide("https://www.irrawaddy.com/wp-content/themes/irrawaddy-mobile/images/logo-og.png", img_ChannelIcon, this);
             activityFeedDetailBinding.toolbarTitle.setText("Title");
         }
